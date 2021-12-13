@@ -13,12 +13,12 @@ class JokeFactory
     public function __construct(array $jokes = null)
     {
         if (is_null($jokes)) {
-            return $this->$jokes;
+            return $this->jokes;
         }
         $this->jokes = $jokes;
     }
 
-    public function getRandomJoke()
+    public function getRandomJoke() : string
     {
         return $this->jokes[array_rand($this->jokes)];
     }

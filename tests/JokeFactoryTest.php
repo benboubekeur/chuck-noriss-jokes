@@ -10,6 +10,7 @@ class JokeFactoryTest extends TestCase
 {
     public function test_it_returns_a_random_joke()
     {
+
         $factory = new JokeFactory(['This is a joke']);
 
         $this->assertSame('This is a joke', $factory->getRandomJoke());
