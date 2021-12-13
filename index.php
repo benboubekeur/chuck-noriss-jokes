@@ -6,4 +6,4 @@ require 'vendor/autoload.php';
 
 $factory = new JokeFactoryAlias();
 
-$factory->sayHello();
+$factory->getRandomJoke();

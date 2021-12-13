@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"tests\\JokeFactoryTest::test_it_returns_a_random_joke":0.01,"tests\\JokeFactoryTest::test_it_returns_a_predefined_joke":0.028}}
