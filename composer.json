@@ -1,0 +1,17 @@
+{
+  "name": "boumedyen/noriss-jokes",
+  "description": "Norris silly jokes",
+  "type": "library",
+  "authors": [{
+    "name": "boumedyen",
+    "email": "boumedyen121@gmail.com"
+  }
+  ],
+  "license": "MIT",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Boumedyen\\NorissJokes\\": "src/"
+    }
+  }
+}
