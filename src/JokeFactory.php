@@ -18,8 +18,9 @@ class JokeFactory
         $this->jokes = $jokes;
     }
 
-    public function getRandomJoke() : string
+    public function getRandomJoke(): string
     {
+        //Comment
         return $this->jokes[array_rand($this->jokes)];
     }
 }
