@@ -17,9 +17,9 @@ use Boumedyen\NorissJokes\JokeFactory;
 
 
 
-        $factory = new JokeFactory(['This is a joke']);
-
-         $factory->getRandomJoke();
+  $factory = new JokeFactory(['This is a joke']);
+  
+  factory->getRandomJoke();
 ```
 
 ## Contributing
