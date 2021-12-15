@@ -20,9 +20,20 @@
     }
   },
   "require-dev": {
-    "phpunit/phpunit": "^9.5"
+    "phpunit/phpunit": "^9.5",
+    "orchestra/testbench": "^6.23"
   },
   "require": {
     "guzzlehttp/guzzle": "^7.4"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Boumedyen\\NorissJokes\\CheckNorissJokesServiceProvider"
+      ],
+      "aliases": {
+        "ChuckNoris": " Boumedyen\\NorissJokes\\Facades\\ChuckNoris"
+      }
+    }
   }
 }
