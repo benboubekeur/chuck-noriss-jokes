@@ -10,7 +10,8 @@ class CheckNorissJokesServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app('chuck-noris', fn () => new JokeFactory());
+
+        $this->app->bind('chuck-noris', fn () => new JokeFactory());
     }
 
     public function boot()
