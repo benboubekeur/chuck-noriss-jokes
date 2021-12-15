@@ -4,30 +4,42 @@ namespace tests;
 
 
 use Boumedyen\NorissJokes\JokeFactory;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 
 class JokeFactoryTest extends TestCase
 {
     public function test_it_returns_a_random_joke()
     {
+        $mock = new MockHandler([
+            new Response(200, [], '{
+"type": "success",
+"value": {
+"id": 404,
+"joke": "When Chuck Norris was born, he immediately had sex with the first nurse he saw. He was her first. She was his third. That afternoon.",
+"categories": [ ]
+}
+}')
+        ]);
+        $handlerStack = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handlerStack]);
 
-        $factory = new JokeFactory(['This is a joke']);
 
-        $this->assertSame('This is a joke', $factory->getRandomJoke());
+       $jokes = new JokeFactory($client);
+
+       $joke = $jokes->getRandomJoke();
+
+       $this->assertSame("When Chuck Norris was born, he immediately had sex with the first nurse he saw. He was her first. She was his third. That afternoon.", $joke);
+
     }
 
     public function test_it_returns_a_predefined_joke()
     {
-        $jokes = [
-            'If Chuck Norris were to travel to an alternate dimension in which there was another 
-            Chuck Norris and they both fought, they would both win.',
-            'Chuck Norris has a mug of nails instead of coffee in the morning.'
-        ];
-        $factory = new JokeFactory($jokes);
 
-        $randomJoke = $factory->getRandomJoke();
-
-        $this->assertContains ($randomJoke, $jokes);
     }
 
 }

@@ -2,25 +2,24 @@
 
 namespace Boumedyen\NorissJokes;
 
+use GuzzleHttp\Client;
+
 class JokeFactory
 {
-    private array $jokes = [
-        'Chuck Norris’ tears cure cancer. Too bad he has never cried.',
-        'When God said, “Let there be light!” Chuck said, “Say Please.”',
-        'The chief export of Chuck Norris is pain.'
-    ];
 
-    public function __construct(array $jokes = null)
+    public const API_END_POINT = 'http://api.icndb.com/jokes/random';
+
+    private Client $client;
+
+    public function __construct(?Client $client = null)
     {
-        if (is_null($jokes)) {
-            return $this->jokes;
-        }
-        $this->jokes = $jokes;
+        $this->client = $client ?: new Client();
     }
 
     public function getRandomJoke(): string
     {
-        //Comment
-        return $this->jokes[array_rand($this->jokes)];
+        $response = $this->client->get(self::API_END_POINT);
+
+        return json_decode($response->getBody()->getContents())->value->joke;
     }
 }
