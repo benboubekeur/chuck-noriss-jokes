@@ -6,4 +6,6 @@
 temp_client/
 robots.txt
 /.phpstorm.meta.php
+/vendor
+/vendor/*
 /vendor/
