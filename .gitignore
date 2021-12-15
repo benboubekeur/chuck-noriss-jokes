@@ -1,6 +1,4 @@
 /node_modules
-/vendor
-/vendor/*
 *.sh
 .env
 .phpunit.result.cache
@@ -8,3 +6,4 @@
 temp_client/
 robots.txt
 /.phpstorm.meta.php
+/vendor/
