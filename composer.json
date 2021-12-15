@@ -32,7 +32,7 @@
         "Boumedyen\\NorissJokes\\CheckNorissJokesServiceProvider"
       ],
       "aliases": {
-        "ChuckNoris": " Boumedyen\\NorissJokes\\Facades\\ChuckNoris"
+        "ChuckNoris": "Boumedyen\\NorissJokes\\Facades\\ChuckNoris"
       }
     }
   }
